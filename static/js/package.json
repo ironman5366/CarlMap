@@ -1,0 +1,19 @@
+{
+  "name": "carlmap",
+  "version": "1.0.0",
+  "description": "Maps for where Carleton students are from",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ironman5366/CarlMap.git"
+  },
+  "author": "Will Beddow",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ironman5366/CarlMap/issues"
+  },
+  "homepage": "https://github.com/ironman5366/CarlMap#readme"
+}
