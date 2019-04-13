@@ -1,1 +1,5 @@
 django
+pillow
+requests
+tqdm
+wikipedia

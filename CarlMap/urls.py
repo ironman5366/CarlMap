@@ -20,4 +20,5 @@ import CarlMap.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', CarlMap.views.Index.as_view()),
+    path('expand/country<int:abbv>', CarlMap.views.expand_country),
 ]
