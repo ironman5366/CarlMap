@@ -135,5 +135,12 @@ function getBoundingBox (data) {
             })
         };
     </script>
+    <script>
+        {% if country %}
+            $(document).ready(function(){
+                country_info({"properties": {"iso": "{{ country }}"}}, {});
+            });
+        {% endif %}
+    </script>
 </footer>
 </html>

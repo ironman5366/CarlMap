@@ -13,7 +13,26 @@ import requests
 
 class Index(TemplateView):
     template_name = "index.html"
-    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        addr_query = self.request.GET.get('address')
+        if addr_query:
+            # Use the geocoding API for the address, and resolve a country from it
+            geocoded = requests.get(f"https://maps.googleapis.com/maps/api/geocode/json?address={addr_query}"
+                                    f"&key={settings.CONF['gmaps_key']}").json()['results']
+            country_found = False
+            # Find the country
+            for result in geocoded:
+                address_components = result['address_components']
+                if country_found:
+                    break
+                for comp in address_components:
+                    if 'country' in comp['types']:
+                        country_found = comp['short_name']
+                        break
+            context['country'] = country_found
+        return context
 
 def expand_country(request, abbv, *args, **kwargs):
     # Check if the abbreviation is 3 characters (ISO alpha-3), and if it is, chop one of the end
